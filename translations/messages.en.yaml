@@ -1,0 +1,55 @@
+title:
+  site: 'Welcome!'
+  blog: 'My blog'
+
+header:
+  home: 'Home'
+  blog: 'Blog'
+  add: 'Add an article'
+  login: 'Login'
+  logout: 'Logout'
+
+blog:
+  viewArticle:
+    title: "Viewing an article"
+    add: 'Created on'
+    edit: 'Modified on'
+  listArticle:
+    title: 'List of articles'
+    button: "See more"
+    comment: 'Comments'
+  editArticle:
+    title: "Edit an article"
+  addArticle:
+    title: "Add an article"
+  lastArticle:
+    category: 'Categories'
+    lastArticle: 'Recent articles'
+    button: 'see the article'
+  login:
+    login: 'Login'
+    password: 'Password'
+    button: 'Connection'
+  tagline: 'Great Blog ! '
+
+controller:
+  list:
+    error: "The page does not exist"
+  notExist:
+    error: "The article does not exist"
+  spam:
+    error: "Stop spamming"
+  success:
+    add: 'Addition made'
+    edit: 'Modifications made'
+    delete: 'Deletion performed'
+  form:
+    buttonAdd: 'Add an article'
+    buttonEdit: "Edit article"
+form:
+  title: 'Title'
+  author: 'Author'
+  content: 'Content'
+  nbViews: 'Views'
+  published: 'Published'
+  categories: 'Categories'

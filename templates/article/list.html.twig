@@ -1,0 +1,37 @@
+{% extends "blog.html.twig" %}
+
+{% block h1 %}
+    {{'blog.listArticle.title'|trans}}
+{% endblock %}
+
+{% block article %}
+    {% for article in articles %}
+        <div class="card text-center" style=" margin-bottom: 2rem">
+            <div class="card-body">
+                <p class="text-right">{{ article.nbViews }} <i class="far fa-eye"></i></p>
+                <h3 class="card-title">{{ article.title }} - {{article.author}}</h3>
+                {% for category in article.categories  %}
+                    <p class="badge badge-primary">{{ category.name }}</p>
+                {% endfor %}
+                <p class="card-text">{{ article.content|slice(0, nbCaractere) }}</p>
+                <a class="btn btn-outline-primary" href="{{ path('view_article',{'id': article.id} ) }}">{{'blog.listArticle.button'|trans}}</a>
+
+                <hr class="my-5">
+
+                {% for comment in article.comments %}
+                    {% if loop.first %}
+                        <h4>{{'blog.listArticle.comment'|trans}} : </h4>
+                    {% endif %}
+                    <h6>{{ comment.title }} - {{ comment.author }}</h6>
+                    <p>{{ comment.message }}</p>
+                    <p>{{ comment.createdAt|date("d/m/Y") }}</p>
+                    <hr class="my-2">
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endfor %}
+    {% if page is defined %}
+        {{ include('_pagination.html.twig', {'page': page, 'nbPage': nbPage}) }}
+    {% endif %}
+{% endblock %}

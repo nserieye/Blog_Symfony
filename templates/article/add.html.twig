@@ -1,0 +1,10 @@
+{% extends "blog.html.twig" %}
+
+{% block h1 %}
+    {{'blog.addArticle.title'|trans}}
+{% endblock %}
+
+{% block article %}
+    {% include '_form.html.twig' %}
+
+{% endblock %}

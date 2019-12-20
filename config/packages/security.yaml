@@ -1,12 +1,32 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        Symfony\Component\Security\Core\User\User: auto
     providers:
-        in_memory: { memory: null }
+        my_provider_in_memory:
+            memory:
+                users:
+                    john:
+                        password:  $2y$13$ON1MvgusDUCElRuyjcHyV./PkctzJ8aUcIyI1WAvTRer2hRHR7RhK
+                        roles: ROLE_USER
+                    mary:
+                        password: $2y$13$ON1MvgusDUCElRuyjcHyV./PkctzJ8aUcIyI1WAvTRer2hRHR7RhK
+                        roles: ROLE_ADMIN
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            pattern: ^/
+            http_basic: ~
+            form_login:
+                check_path: app_login_check
+                login_path: app_login
+
+            logout:
+                path: app_logout
+                target: app_login
+
             anonymous: lazy
 
             # activate different ways to authenticate
@@ -18,5 +38,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: "^/blog", roles: ROLE_USER }
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER

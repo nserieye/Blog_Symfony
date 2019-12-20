@@ -1,0 +1,54 @@
+title:
+  site: 'Bienvenue!'
+  blog: 'Mon blog'
+
+header:
+  home: 'Accueil'
+  blog: 'Blog'
+  add: 'Ajouter un article'
+  login: 'Se connecter'
+  logout: 'Se déconnecter'
+
+blog:
+  viewArticle:
+    title: "Consultation de l'article"
+    add: 'Créé le'
+    edit: 'Modifié le'
+  listArticle:
+    title: 'Liste des articles'
+    button: "Voir plus"
+    comment: 'Commentaires'
+  editArticle:
+    title: "Editer l'article"
+  addArticle:
+    title: "Ajouter un article"
+  lastArticle:
+    category: 'Catégories'
+    lastArticle: 'Articles récents'
+    button: "Voir l'article"
+  login:
+    login: 'Identifiant'
+    password: 'Mot de passe'
+    button: 'Connexion'
+  tagline: 'Super blog ! '
+
+controller:
+  errorPage: "La page n'existe pas"
+  errorArticle: "L'article n'existe pas"
+  spam:
+    error: "Arrêtez de spammer"
+  success:
+    add: 'Ajout réalisé'
+    edit: 'Modification réalisée'
+    delete: 'Suppression réalisée'
+  form:
+    buttonAdd: 'Ajouter un article'
+    buttonEdit: "Editer l'article"
+
+form:
+  title: 'Titre'
+  author: 'Auteur'
+  content: 'Contenu'
+  nbViews: 'Nombre de vue'
+  published: 'Publié'
+  categories: 'Catégories'

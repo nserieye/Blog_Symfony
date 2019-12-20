@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{%block title %} {{'title.blog'|trans}} - {{ parent() }} {% endblock %}
+
+{% block menu %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ path('add_article') }}">{{'header.add'|trans}}</a>
+        </li>
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    {%block article %}{% endblock %}
+
+    <div class="text-center">{{'blog.tagline'|trans}}</div>
+{% endblock %}

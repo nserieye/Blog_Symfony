@@ -1,0 +1,2 @@
+article:
+  error: 'The number of views must be positive'

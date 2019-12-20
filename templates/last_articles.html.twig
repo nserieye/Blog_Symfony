@@ -1,0 +1,47 @@
+<div class="m-8  text-center">
+    <h6>{{ 'blog.lastArticle.category'|trans }} : </h6>
+    {% for category in categories %}
+        <div class="list-group ">
+            <a class="list-group-item list-group-item-action " href="{{ path('category',{'id': category.id}) }}" class="btn btn-primary">{{ category.name }}</a>
+        </div>
+    {% endfor %}
+
+    <h6>{{ 'blog.lastArticle.lastArticle'|trans }} : </h6>
+
+    {% for article in articles %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <a href="{{ path('view_article',{'id': article.id} ) }}" class="btn btn-primary">{{ 'blog.lastArticle.button'|trans }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

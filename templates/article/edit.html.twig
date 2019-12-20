@@ -1,0 +1,9 @@
+{% extends "blog.html.twig" %}
+
+{% block h1 %}
+    {{'blog.editArticle.title'|trans}}
+{% endblock %}
+
+{% block article %}
+    {% include '_form.html.twig' %}
+{% endblock %}

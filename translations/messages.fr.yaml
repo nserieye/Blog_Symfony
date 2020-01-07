@@ -30,7 +30,7 @@ blog:
     login: 'Identifiant'
     password: 'Mot de passe'
     button: 'Connexion'
-  tagline: 'Super blog ! '
+  tagline: 'Super blog 5.0 ! '
 
 controller:
   errorPage: "La page n'existe pas"

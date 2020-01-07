@@ -30,7 +30,7 @@ blog:
     login: 'Login'
     password: 'Password'
     button: 'Connection'
-  tagline: 'Great Blog ! '
+  tagline: 'Great Blog 5.0 ! '
 
 controller:
   errorGranted: "You can't edit it"

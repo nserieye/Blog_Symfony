@@ -27,4 +27,19 @@
             {% endif %}
         </div>
     </div>
+
+    <div class="card" style="margin-bottom: 2rem">
+        <div class="card-body">
+            <h3 class="card-title">{{'blog.listArticle.comment'|trans}} :</h3>
+            {% for comment in article.comments %}
+                <h6>{{ comment.title }} - {{ comment.author }}</h6>
+                <p>{{ comment.message }}</p>
+                <p>{{ comment.createdAt|date("d/m/Y") }}</p>
+                {% if not loop.last %}
+                    <hr class="my-2">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}

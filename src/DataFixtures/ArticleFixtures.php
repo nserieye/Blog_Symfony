@@ -16,9 +16,9 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $faker = Factory::create('fr_FR');
         foreach (range(1,50) as $index) {
             $article = new Article();
-            $article->setTitle($faker->words($faker->numberBetween(1, 4), $asText = true));
+            $article->setTitle($faker->words($faker->numberBetween(1, 3), $asText = true));
             $article->setAuthor($faker->name);
-            $article->setContent($faker->text(700));
+            $article->setContent($faker->text(800));
             $article->setPublished($faker->boolean);
             $article->setNbViews(0);
             $article->setUser($this->getReference(UserFixtures::USERS[$faker->numberBetween(0, 1)]));

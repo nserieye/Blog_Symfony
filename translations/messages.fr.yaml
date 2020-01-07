@@ -35,6 +35,8 @@ blog:
 controller:
   errorPage: "La page n'existe pas"
   errorArticle: "L'article n'existe pas"
+  errorView: "L'article n'est pas publié"
+  errorGranted: "Vous ne pouvez pas l'éditer"
   spam:
     error: "Arrêtez de spammer"
   success:

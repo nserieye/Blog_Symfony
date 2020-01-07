@@ -69,6 +69,11 @@ class Article
      */
     private $categories;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTime());
@@ -172,6 +177,17 @@ class Article
     public function getComments(): Collection
     {
         return $this->comments;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+        return $this;
     }
 
     /**

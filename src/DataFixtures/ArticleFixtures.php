@@ -21,6 +21,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
             $article->setContent($faker->text(700));
             $article->setPublished($faker->boolean);
             $article->setNbViews(0);
+            $article->setUser($this->getReference(UserFixtures::USERS[$faker->numberBetween(0, 1)]));
             $article->addCategory($this->getReference('category' . $faker->numberBetween(0, 5)));
             $article->addCategory($this->getReference('category' . $faker->numberBetween(0, 5)));
             $this->addReference('article' . $index, $article);
@@ -34,6 +35,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
     {
         return array(
             CategoryFixtures::class,
+            UserFixtures::class,
         );
     }
 }

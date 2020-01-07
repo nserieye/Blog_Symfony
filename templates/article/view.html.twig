@@ -21,7 +21,7 @@
                 <p class="badge badge-primary" >{{ category.name }}</p>
             {% endfor %}
             <p class="card-text">{{ article.content}}</p>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('edit', article) %}
                 <a type="button" class="card-link btn btn-secondary" href="{{ path('edit_article', {'id': article.id})}}" ><i class="fas fa-pen"></i></a>
                 <a type="button" class="card-link btn btn-danger ml-1" href="{{ path('delete_article', {'id': article.id})}}"><i class="fas fa-trash fa-1x"></i></a>
             {% endif %}

@@ -33,10 +33,10 @@ blog:
   tagline: 'Great Blog ! '
 
 controller:
-  list:
-    error: "The page does not exist"
-  notExist:
-    error: "The article does not exist"
+  errorGranted: "You can't edit it"
+  errorPage: "The page does not exist"
+  errorArticle: "The article does not exist"
+  errorView: "The article is not published"
   spam:
     error: "Stop spamming"
   success:

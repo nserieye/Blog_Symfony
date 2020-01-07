@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -45,14 +46,19 @@ class ArticlesController extends AbstractController
     /**
      * @Route ("/article/{id}", name="view_article", requirements={"id": "\d+"})
      */
-    public function viewAction($id, EntityManagerInterface $em,TranslatorInterface $translator){
-        $article = $em->getRepository('App:Article')->find($id);
-        $article ->setNbViews($article->getNbViews()+1);
-        $em->flush();
-        if(!$article || !$article->getPublished()){
-            throw new NotFoundHttpException($translator->trans('controller.errorArticle'));
+    public function viewAction(Article $article, EntityManagerInterface $em,TranslatorInterface $translator, Security $security)
+    {
+        if (!$security->isGranted('view', $article)){
+            throw new NotFoundHttpException($translator->trans('controller.errorView'));
         }
-        return $this->render('article/view.html.twig',['article' => $article] );
+
+        if($article){
+            $article ->setNbViews($article->getNbViews()+1);
+            $em->flush();
+            return $this->render('article/view.html.twig',['article' => $article] );
+        }
+
+        throw new NotFoundHttpException($translator->trans('controller.errorArticle'));
     }
 
     /**
@@ -83,10 +89,12 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route ("/article/edit/{id}", name="edit_article", requirements={"id":"\d+"}, methods={"GET", "POST"})
-     * @IsGranted("ROLE_ADMIN")
      */
-    public function editAction(EntityManagerInterface $em, Request $request, int $id,AntiSpam $antiSpam, TranslatorInterface $translator){
+    public function editAction(EntityManagerInterface $em, Request $request, int $id,AntiSpam $antiSpam, TranslatorInterface $translator, Security $security){
         $article = $em->getRepository('App:Article')->find($id);
+        if (!$security->isGranted('edit', $article)){
+            throw new NotFoundHttpException($translator->trans('controller.errorGranted'));
+        }
         $form=$this->createForm(ArticleType::class, $article);
         $form->add('send',SubmitType::class, ['label'=>'controller.form.buttonEdit', 'attr' =>['class'=> 'btn btn-outline-primary']]);
         $form->handleRequest($request);

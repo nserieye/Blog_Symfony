@@ -23,6 +23,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class ArticlesController extends AbstractController
 {
+
+    //function qui permet de lister les articles avec nombre predefinis d'article par page
     /**
      * @Route ("/list/{page}", name="list_article", defaults ={"page":1}, requirements={"page": "\d+"})
      */
@@ -43,6 +45,7 @@ class ArticlesController extends AbstractController
         ]);
     }
 
+    //function qui "affiche" un article précis et augmente le nb de vue
     /**
      * @Route ("/article/{id}", name="view_article", requirements={"id": "\d+"})
      */
@@ -61,6 +64,7 @@ class ArticlesController extends AbstractController
         throw new NotFoundHttpException($translator->trans('controller.errorArticle'));
     }
 
+    //function qui permet d'ajouter un article
     /**
      * @Route ("/article/add", name="add_article", methods={"GET", "POST"})
      * @IsGranted("ROLE_ADMIN")
@@ -87,6 +91,7 @@ class ArticlesController extends AbstractController
         return $this->render('article/add.html.twig', array('form'=>$form->createView()));
     }
 
+    //Edition d'un article
     /**
      * @Route ("/article/edit/{id}", name="edit_article", requirements={"id":"\d+"}, methods={"GET", "POST"})
      */
@@ -112,6 +117,7 @@ class ArticlesController extends AbstractController
         return $this->render('article/edit.html.twig', ['form'=>$form->createView()]);
     }
 
+    //suppression d'un article
     /**
      * @Route ("/article/delete/{id}", name="delete_article", requirements={"id":"\d+"})
      * @IsGranted("ROLE_ADMIN")
@@ -130,6 +136,7 @@ class ArticlesController extends AbstractController
         return $this->redirectToRoute('list_article');
     }
 
+    //affichage des derniers articles
     /**
      * @Route ("/article/recent", name="recent_article")
      */
@@ -145,6 +152,7 @@ class ArticlesController extends AbstractController
         return $this->render('last_articles.html.twig',['articles' => $articles, 'categories' => $categories] );
     }
 
+    //affichage des articles pour une catégorie précise
     /**
      * @Route ("/category/{id}/{page}", name="category", requirements={"page": "\d+", "id": "\d+"}, defaults={"page"=1}))
      */

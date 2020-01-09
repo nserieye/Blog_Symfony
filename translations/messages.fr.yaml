@@ -30,6 +30,10 @@ blog:
     login: 'Identifiant'
     password: 'Mot de passe'
     button: 'Connexion'
+    modal:
+      name: "Identifiant oublié"
+      title: "Rappel identifiant"
+      content: "mot de passe"
   tagline: 'Super blog 5.0 ! '
 
 controller:

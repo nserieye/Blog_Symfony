@@ -30,6 +30,10 @@ blog:
     login: 'Login'
     password: 'Password'
     button: 'Connection'
+    modal:
+      name: "Forgot your username and password"
+      title: "Reminder identifier"
+      content: "password"
   tagline: 'Great Blog 5.0 ! '
 
 controller:

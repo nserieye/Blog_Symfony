@@ -23,15 +23,15 @@
                 </div>
 
                 <div style="text-align:center;">
-                    <a href="#" data-toggle="modal" data-target="#modal" style="font-size: smaller">
-                        Identifiant oublié
+                    <a href="#" class="text-secondary" data-toggle="modal" data-target="#modal" style="font-size: smaller">
+                        {{ 'blog.login.modal.name'|trans }}
                     </a>
                 </div>
                 <div class="modal fade" id="modal" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="ModalLabel">Rapel identifiant</h5>
+                                <h5 class="modal-title" id="ModalLabel">{{ 'blog.login.modal.title'|trans }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -39,7 +39,7 @@
                             <div class="modal-body">
                                 <p>mary = admin</p>
                                 <p>john = user </p>
-                                <p>mot de passe = doe</p>
+                                <p>{{ 'blog.login.modal.content'|trans }} = doe</p>
                             </div>
                         </div>
                     </div>
